@@ -8,10 +8,10 @@
 </head>
 <body>
     <h1> Login </h1>
-    <form onsubmit=" event.preventDefault();" id="login-form" action="">
+    <form onsubmit=" event.preventDefault(); login()" id="login-form" action="">
         <div class="inputs">
-            <input class="input" type="text" placeholder="Email" required>
-            <input class="password" type="text" placeholder="Password required">
+            <input id="email" class="input" type="text" placeholder="Email" required>
+            <input id="password" class="input" type="text" placeholder="Password required">
         </div>
         <div class="buttons">
             <button type="submit" class="button">Login</button>
@@ -19,5 +19,8 @@
             <a href="../index.html">HOME</a>
         </div>
     </form>
+
+    <!-- ----------------------scripts------------------>
+    <script src="../scripts/loginAndRegistration.js"></script>
 </body>
 </html>
