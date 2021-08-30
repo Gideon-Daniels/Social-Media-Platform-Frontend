@@ -1,22 +1,34 @@
 
 myStorage = window.localStorage
 
-function fetchUsers(){
-    fetch("https://social-media-back-end.herokuapp.com/users/")
-.then( res => res.json())
-.then( res => {
-    users = res.data
-    console.log(users);
-    
-})
-}
-
-fetchUsers()
-
 function login(){
 
-    email = document.getElementById("email")
-    password = document.getElementById("password")
-    console.log(email.value, " ", password.value)
+    email = document.getElementById("email").value
+    password = document.getElementById("password").value
+   console.log(email,
+    password)
+fetch("https://social-media-back-end.herokuapp.com/users/",{
+    method:"PATCH",
+    body:JSON.stringify({
+        email,
+        password
+    }),
+    headers: {
+        'content-type': 'application/json; charset=UTF-8',
+    },
+})
+.then( res => res.json())
+.then( res => {
+    userData = res.data
+    console.log(userData);
+    if (!userData){
+        document.querySelector("#error").innerHTML = "No user found with those creditials."
+        return;
+    }
+    else{       
+        localStorage.setItem("user", JSON.stringify(userData));
+        window.location= "../html/landing.html"
+    }
+})
  
 }

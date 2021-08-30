@@ -8,10 +8,11 @@
 </head>
 <body>
     <h1> Login </h1>
-    <form onsubmit=" event.preventDefault(); login()" id="login-form" action="">
+    <form onsubmit=" event.preventDefault(); login();" id="login-form">
         <div class="inputs">
             <input id="email" class="input" type="text" placeholder="Email" required>
             <input id="password" class="input" type="text" placeholder="Password required">
+            <span id="error"></span>
         </div>
         <div class="buttons">
             <button type="submit" class="button">Login</button>
