@@ -11,26 +11,28 @@
     <a href="./login.html">Login</a>
     <a href="../index.html">HOME</a>
 
-    <form onsubmit="event.preventDefault();" id="signup">
+    <form onsubmit="event.preventDefault(); registration()" id="signup">
         <div class="basic-details-inputs">
-            <input type="text" class="input" placeholder="Name">
-            <input type="text" class="input" placeholder="Surname">
-            <input type="text" class="input" placeholder="email">
-            <input type="text" class="input" placeholder="password">
+            <input id="name"  type="text" class="input" placeholder="Name">
+            <input id="surname" type="text" class="input" placeholder="Surname">
+            <input id="email" type="text" class="input" placeholder="Email">
+            <input id="password" type="text" class="input" placeholder="Password">
         </div>
-
+        <span id="error-basic-details"></span>
         <div class="location-details-inputs">
-            <input type="text" class="input" placeholder="Address">
-            <input type="text" class="input" placeholder="Suburb">
-            <input type="text" class="input" placeholder="Postal Code">
-            <input type="text" class="input" placeholder="City">
-            <input type="text" class="input" placeholder="Province">
+            <input id="address" type="text" class="input" placeholder="Address">
+            <input id="suburb" type="text" class="input" placeholder="Suburb">
+            <input id="postal-code" type="text" class="input" placeholder="Postal Code">
+            <input id="city" type="text" class="input" placeholder="City">
+            <input id="province" type="text" class="input" placeholder="Province">
         </div>
-
+        <span id="error-location-details"></span>
         <div class="buttons">
             <button type="submit" class="button">Submit</button>
         </div>
     
     </form>
+
+    <script src="../scripts/loginAndRegistration.js"></script>
 </body>
 </html>
