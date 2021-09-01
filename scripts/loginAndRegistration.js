@@ -29,7 +29,7 @@ fetch("https://social-media-back-end.herokuapp.com/users/",{
     }
     else{       
         localStorage.setItem("user", JSON.stringify(userData));
-        window.location= "../html/landing.html"
+        window.location= "../html/home.html"
     }
 })
 }
@@ -48,14 +48,14 @@ function registration(){
     let postalCode = document.getElementById("postal-code").value;
     let city = document.getElementById('city').value
     let province = document.getElementById("province").value;
-    
+    let profile_picture = "https://i.postimg.cc/7YhzgVSV/15776751-983806971723354-3851030956199859639-o.jpg"
     // register details
     registerLocation(address, suburb, postalCode, city, province);
-    registerBasicDetails(names, surname, email, password);
+    registerBasicDetails(names, surname, email, password, profile_picture);
 
 }
 
-function registerBasicDetails(name, surname, email, password){
+function registerBasicDetails(name, surname, email, password, profile_picture){
     fetch("https://social-media-back-end.herokuapp.com/users/",{
         // mode: "no-cors",    
         method:"POST",
@@ -64,6 +64,7 @@ function registerBasicDetails(name, surname, email, password){
             surname,
             email,
             password,
+            profile_picture
         }),
         headers:{
             'content-type':'application/json; charset=UTF-8',
