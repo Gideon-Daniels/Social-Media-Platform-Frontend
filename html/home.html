@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Welcome To Stay Connected</title>
+</head>
+<body>
+    <header id="header">
+        <img src="" alt="logo">
+        <nav class="navbar">
+            <form id="search-anything">
+                <input type="text" placeholder="Search Anything...." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            <div class="navigate"></div>
+            <div class="buttons">
+                <button class="button" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+    </header>
+    <section id="main">
+        <section id="left">
+            <div class="profile"></div>
+        </section>
+        <!-- //////////////////////////////POSTS/////////////////////////// -->
+        <section id="mid">
+            <form id="search-post">
+                <input type="text" placeholder="Search Post...." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            <div class="buttons">
+                <button class="create">Create Post</button>
+            </div>
+            <div class="posts"></div>
+        </section>
+        <!-- //////////////////////////////USERS/////////////////////////// -->
+        <section id="right">
+            <form id="search-users">
+                <input type="text" placeholder="Search Users...." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <div id="users-container">
+                <img src="" alt="">
+                <h3 class="title"></h3>
+                <div class="buttons">
+                    <button class="button">VIEW</button>
+                </div>
+            </div>
+        </section>
+    </section>
+    <footer id="footer"></footer>
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

@@ -2,20 +2,19 @@
 myStorage = window.localStorage
 // --------------------------------LOGIN Functionality------------------------------//
 let user = {}
-let locationLength = 0;
 function login(){
     email = document.getElementById("email").value
     password = document.getElementById("password").value
-   console.log("username:",email," Password:",password)
+   console.log("email:",email," Password:",password)
 //    Patch fetches users data or returns data=null
-fetch("https://social-media-back-end.herokuapp.com/users",{
+fetch("https://social-media-back-end.herokuapp.com/users/",{
     method:"PATCH",
     body:JSON.stringify({
         email,
-        password
+        password,
     }),
     headers: {
-        'content-type': 'application/json; charset=UTF-8',
+        'Content-type': 'application/json; charset=UTF-8'
     },
 })
 .then( res => res.json())
@@ -47,10 +46,11 @@ function registration(){
     let address = document.getElementById("address").value;
     let suburb = document.getElementById("suburb").value;
     let postalCode = document.getElementById("postal-code").value;
+    let city = document.getElementById('city').value
     let province = document.getElementById("province").value;
     
     // register details
-    registerLocation(address, suburb, postalCode, province);
+    registerLocation(address, suburb, postalCode, city, province);
     registerBasicDetails(names, surname, email, password);
 
 }
@@ -76,14 +76,13 @@ function registerBasicDetails(name, surname, email, password){
     })
 }
 
-function registerLocation(address, suburb, postalCode, city, province){
-    fetch("https://social-media-back-end.herokuapp.com/users/",{
-        // mode: "no-cors",    
+function registerLocation(address, suburb, postal_code, city, province){
+    fetch("https://social-media-back-end.herokuapp.com/locations/",{   
         method:"POST",
         body:JSON.stringify({
             address,
             suburb,
-            postalCode,
+            postal_code,
             city,
             province
         }),
