@@ -50,6 +50,15 @@ img{
 .posted{
     text-align: center;
 }
+#search-users{
+    display: flex;
+}
+#users-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 /* footer section */
 
 

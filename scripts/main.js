@@ -6,7 +6,7 @@ function logout(){
 const user = JSON.parse(myStorage.getItem('user'))
 console.log(user)
 // --------------------------------USERS FUNCTIONALITY---------------------------------
-arrUsers=[]
+let arrUsers=[]
 function fetchUsers(){
     fetch("https://social-media-back-end.herokuapp.com/users/")
     .then( res => res.json())
@@ -35,19 +35,16 @@ fetchUsers()
 
 function showUserLoggedIn(){
     let container = document.getElementById("profile")
-    console.log(container)
-    console.log(user)
     container.innerHTML =`
         <img src="${user.profile_picture}" alt="${user.id}">
         <h3 class="title">${user.name} ${user.surname}</h3>
     `;
-
 }
 
 showUserLoggedIn();
 
 // --------------------------------POSTS FUNCTIONALITY-----------------------------
-arrPosts = []
+let arrPosts = []
 function fetchPosts(){
     fetch("https://social-media-back-end.herokuapp.com/posts/")
     .then( res=> res.json())
@@ -56,16 +53,17 @@ function fetchPosts(){
         displayPosts(res.data)
     })
 }
-fetchPosts()
 
+
+fetchPosts()
 function displayPosts(posts){
     let container = document.querySelector(".posts")
     container.innerHTML = ""
+    
     posts.forEach(post => {
         arrPosts.push(post)
         let datepublished = post.date_published
         let arrDateTime = datepublished.split(" ")
-        console.log(arrDateTime)
         container.innerHTML =  `
     <div id="post">
             <img src="" alt="${post.user_id}">
@@ -79,6 +77,18 @@ function displayPosts(posts){
     });
     console.log("Array",arrPosts)
 }
+console.log(findUser("Gideon"));
+
+function findUser(id){
+    console.log("ArrUsers",arrUsers)
+    let user = arrUsers.find(user => {
+        return user
+    });
+    return user
+}
+
+
+
 
 // ---------------------------------LOCATIONS FUNCTIONALITY-----------------------------
 function fetchLocations(){
