@@ -3,6 +3,8 @@ myStorage = window.localStorage
 function logout(){
     window.location = '../html/login.html'
 }
+const user = JSON.parse(myStorage.getItem('user'))
+console.log(user)
 // --------------------------------USERS FUNCTIONALITY---------------------------------
 arrUsers=[]
 function fetchUsers(){
@@ -30,6 +32,19 @@ function showUsers(users){
 }
 
 fetchUsers()
+
+function showUserLoggedIn(){
+    let container = document.getElementById("profile")
+    console.log(container)
+    console.log(user)
+    container.innerHTML =`
+        <img src="${user.profile_picture}" alt="${user.id}">
+        <h3 class="title">${user.name} ${user.surname}</h3>
+    `;
+
+}
+
+showUserLoggedIn();
 
 // --------------------------------POSTS FUNCTIONALITY-----------------------------
 arrPosts = []

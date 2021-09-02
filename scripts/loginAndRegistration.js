@@ -1,7 +1,7 @@
 
 myStorage = window.localStorage
 // --------------------------------LOGIN Functionality------------------------------//
-let user = {}
+
 function login(){
     email = document.getElementById("email").value
     password = document.getElementById("password").value
@@ -20,7 +20,6 @@ fetch("https://social-media-back-end.herokuapp.com/users/",{
 .then( res => res.json())
 .then( res => {
     userData = res.data
-    user = userData
     console.log(userData);
     // error messaged displayed when user data is empty
     if (!userData){
@@ -33,7 +32,7 @@ fetch("https://social-media-back-end.herokuapp.com/users/",{
     }
 })
 }
-
+let nextWindow = false;
 function registration(){
 
     // get basic details
@@ -48,11 +47,11 @@ function registration(){
     let postalCode = document.getElementById("postal-code").value;
     let city = document.getElementById('city').value
     let province = document.getElementById("province").value;
-    let profile_picture = "https://i.postimg.cc/7YhzgVSV/15776751-983806971723354-3851030956199859639-o.jpg"
+    let profile_picture = "https://i.postimg.cc/PJLJf4q6/default-profile-picture1.jpg"
     // register details
-    registerLocation(address, suburb, postalCode, city, province);
     registerBasicDetails(names, surname, email, password, profile_picture);
-
+    registerLocation(address, suburb, postalCode, city, province);
+        
 }
 
 function registerBasicDetails(name, surname, email, password, profile_picture){
@@ -74,6 +73,15 @@ function registerBasicDetails(name, surname, email, password, profile_picture){
     .then(res => res.json())
     .then(res => {
         console.log(res)
+        if (res.status_code == 201){
+            document.querySelector("#error-basic-details").innerHTML = "You have registered please login successfully"
+            nextWindow = true
+        }
+        else{
+            document.querySelector("#error-basic-details").innerHTML = `${res.message}`
+            nextWindow = false       
+        }
+
     })
 }
 
@@ -95,6 +103,16 @@ function registerLocation(address, suburb, postal_code, city, province){
     .then(res => res.json())
     .then(res => {
         console.log(res)
+        if (res.status_code == 201){
+            document.querySelector("#error-location-details").innerHTML = "You have registered please login successfully"
+            setTimeout(function(){
+                window.location = '../html/login.html'  
+                console.log("Checking if timeout function is running")
+            }, 3000);  
+        }
+        else{
+            document.querySelector("#error-location-details").innerHTML = `${res.message}`             
+        }
     })
 }
 
