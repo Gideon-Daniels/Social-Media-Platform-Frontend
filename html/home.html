@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script
+      src="https://kit.fontawesome.com/a549f23a3b.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Welcome To Stay Connected</title>
     <link rel="stylesheet" href="../styles/main.css">
 </head>
@@ -12,7 +16,7 @@
     <header id="header">
         <img src="" alt="logo">
         <nav class="navbar">
-            <form id="search-anything">
+            <form id="search-anything" onsubmit="event.preventDefault;">
                 <input type="text" placeholder="Search Anything...." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
@@ -31,21 +35,45 @@
         </section>
         <!-- //////////////////////////////POSTS/////////////////////////// -->
         <section id="mid">
-            <form id="search-post">
-                <input type="text" placeholder="Search Post...." name="search">
+            <form id="search-posts" onsubmit="event.preventDefault(); searchPost();">
+                <input id="search-post" type="text" placeholder="Search Post...." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
+                <button type="reset" onclick="resetPosts();"><i class="fas fa-redo"></i></button>
               </form>
+              <span id="post-search-error"></span>
+
             <div class="buttons">
-                <button class="create">Create Post</button>
+                <button id="open" class="create">Create Post</button>
+                 <select class="filter-post">
+                    <option>Recent</option>
+                    <option>Long Ago</option>
+                </select>
+            </div>
+              <!-- ---------------------------MODAL CONTAINER --------------------------- -->
+              <div id="modal-container" class="modal-container">
+                <div class="modal">
+                    <span id="close" class="close">x</span>
+                    <h1>Create Post</h1>
+                   <form id="create-post">
+                       <input id="post-title" type="text" name="title" placeholder="title" required>
+                       <textarea  id="post-content" name="content" cols="30" rows="10" placeholder="Content" required></textarea>
+                       <buttons class="buttons">
+                           <button type="submit" class="button">Submit</button>
+                           <button type="reset" class="button"><i class="fas fa-redo"></i></button>
+                       </buttons>
+                   </form>
+                </div>
             </div>
             <div class="posts"></div>
         </section>
         <!-- //////////////////////////////USERS/////////////////////////// -->
         <section id="right">
-            <form id="search-users">
-                <input type="text" placeholder="Search Users...." name="search">
+            <form id="search-users" onsubmit="event.preventDefault(); searchUser();">
+                <input id="search-user" type="text" placeholder="Search Users...." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
+                <button type="reset" onclick="resetUsers();"><i class="fas fa-redo"></i></button>
             </form>
+            <span id="user-search-error"></span>
             <div id="users-container">
                 <img src="" alt="">
                 <h3 class="title"></h3>

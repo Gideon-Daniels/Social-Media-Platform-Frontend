@@ -33,7 +33,7 @@ img{
     gap: 5px;
     padding: 20px;
 }
-
+/* -----------------------Mid Section */
 #mid{
     display: flex;
     flex-direction: column;
@@ -41,14 +41,24 @@ img{
     gap: 10px;
 }
 
+#mid .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+/* ----------------------------Posts Section */
 #post{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     
 }
-.posted{
-    text-align: center;
+.heading{
+    display: flex;
+}
+.heading img{
+    height: 40px;
+    width: 40px;
 }
 #search-users{
     display: flex;
@@ -60,5 +70,53 @@ img{
     gap: 20px;
 }
 /* footer section */
+
+
+/* Modal Section */
+#modal-container{
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in;
+}
+#modal-container.show{
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal{
+    width: 600px;
+    max-width: 100%;
+}
+
+.modal h1{
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.close{
+    position: fixed;
+    right: 80px;
+    top: 80px;
+    color: whitesmoke;
+    cursor: pointer;
+    font-size: 50px;
+}
+
+#create-post{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 
