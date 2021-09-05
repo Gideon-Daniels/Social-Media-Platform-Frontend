@@ -16,6 +16,7 @@ function fetchUsers(){
         showUsers(res.data)
         fetchPosts()
         fetchLocations()
+      
         // instead of calling each function in the global scope , 
         // call other functions within the first function that is being executed 
         // so that the data is being pushed on to global variables gets its data pushed into the variable after 
@@ -61,6 +62,7 @@ function fetchPosts(){
         arrPosts = res.data
         console.log(res.data)
         displayPosts(res.data)
+        
     })
 }
 
@@ -151,6 +153,13 @@ function searchPost(){
     }
 }
 
+function searchAnything(){
+    console.log(arrPosts)
+    console.log(arrUsers)
+  let join = arrUsers.concat(arrPosts).concat(arrLocations)
+  console.log ("Joined",join)
+}
+
 function resetPosts(){
     document.querySelector("#post-search-error").innerHTML = ""
     displayPosts(arrPosts)
@@ -208,7 +217,8 @@ function fetchLocations(){
     .then( res => {
         arrLocations = res.data
         console.log("Locations",arrLocations)
-    })
+        searchAnything()
+    }) 
 }
 
 // -------------------------------Modal functionality------------------------
