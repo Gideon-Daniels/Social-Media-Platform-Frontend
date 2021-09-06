@@ -15,7 +15,7 @@
 
 body{
     color: white;
-background-color: white;
+background-color: var(--secondary);
 font-family: sans-serif;
 padding: 25px 25px;
 display: flex;

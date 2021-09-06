@@ -1,0 +1,94 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --primary: #04AA6D;
+    --secondary: #e0e0e0;
+    --border: white;
+}
+
+body{
+    color: white;
+background-color: white;
+font-family: sans-serif;
+height: 100vh;
+overflow: hidden;
+}
+
+/* ------------------header------------------ */
+header{ 
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+    gap: 5px;
+}
+.heading{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.links{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap:10px;
+}
+.links .link {
+    background-color: white;
+}
+
+.link a {
+    display: inherit;
+    color: var(--primary);
+    padding: 10px;
+}
+/* -------------------landing------------------- */
+.landing{
+    background-color: var(--secondary);
+    max-width: 100vw;
+    min-width: 20vw;
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#login-form{
+    background-color: var(--primary);
+    height: 70vh;
+    width: 90vw;
+    max-height: 70vh;
+    max-width: 61vw;
+    padding: 10px 5px;
+    overflow: scroll;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 2px 2px 5px var(--primary);
+}
+#login-form h1{
+    background-color: white;
+    color: var(--primary);
+    width: 100%;
+    text-align: center;
+    box-shadow:0px 0px 2px 2px var(--secondary) ;
+}
+
+/* --------------------------footer-------------- */
+
+footer{  
+    background-color: var(--primary);
+    width: 100%;
+    height: 15vh;
+}
