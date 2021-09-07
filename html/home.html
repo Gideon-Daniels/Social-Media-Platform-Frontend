@@ -13,19 +13,21 @@
     <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
-    <header id="header">
-        <img src="" alt="logo">
         <nav class="navbar">
-            <form id="search-anything" onsubmit="event.preventDefault;">
-                <input type="text" placeholder="Search Anything...." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
+            <h1 class="heading">
+                <span class="cog"><i class="fas fa-cog"></i></span>
+                Stay Connected
+                <span class="cog"><i class="fas fa-cog"></i></span>
+             </h1>
+            <form id="search" onsubmit="event.preventDefault();">
+                <input id="search-anything" class="search-input" type="text" placeholder="Search Anything...." name="search">
+                <button class="button-submit" type="submit"><i class="fa fa-search"></i></button>
               </form>
             <div class="navigate"></div>
             <div class="buttons">
                 <button class="button" onclick="logout()">Logout</button>
             </div>
         </nav>
-    </header>
     <section id="main">
         <section id="left">
             <div id="profile">
@@ -36,9 +38,9 @@
         <!-- //////////////////////////////POSTS/////////////////////////// -->
         <section id="mid">
             <form id="search-posts" onsubmit="event.preventDefault(); searchPost();">
-                <input id="search-post" type="text" placeholder="Search Post...." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-                <button type="reset" onclick="resetPosts();"><i class="fas fa-redo"></i></button>
+                <input id="search-post" class="search-input" type="text" placeholder="Search Post...." name="search">
+                <button class="button-submit" type="submit"><i class="fa fa-search"></i></button>
+                <button class="button-reset"  type="reset" onclick="resetPosts();"><i class="fas fa-redo"></i></button>
               </form>
               <span id="post-search-error"></span>
 
@@ -55,11 +57,11 @@
                     <span id="close" class="close">x</span>
                     <h1>Create Post</h1>
                    <form id="create-post">
-                       <input id="post-title" type="text" name="title" placeholder="title" required>
+                       <input id="post-title" class="search-input" type="text" name="title" placeholder="title" required>
                        <textarea  id="post-content" name="content" cols="30" rows="10" placeholder="Content" required></textarea>
                        <buttons class="buttons">
-                           <button type="submit" class="button">Submit</button>
-                           <button type="reset" class="button"><i class="fas fa-redo"></i></button>
+                           <button type="submit" class="button button-submit">Submit</button>
+                           <button class="button-reset"  type="reset" class="button"><i class="fas fa-redo"></i></button>
                        </buttons>
                    </form>
                 </div>
@@ -69,9 +71,9 @@
         <!-- //////////////////////////////USERS/////////////////////////// -->
         <section id="right">
             <form id="search-users" onsubmit="event.preventDefault(); searchUser();">
-                <input id="search-user" type="text" placeholder="Search Users...." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-                <button type="reset" onclick="resetUsers();"><i class="fas fa-redo"></i></button>
+                <input id="search-user" class="search-input" type="text" placeholder="Search Users...." name="search">
+                <button class="button-submit" type="submit"><i class="fa fa-search"></i></button>
+                <button class="button-reset" type="reset" onclick="resetUsers();"><i class="fas fa-redo"></i></button>
             </form>
             <span id="user-search-error"></span>
             <div id="users-container">

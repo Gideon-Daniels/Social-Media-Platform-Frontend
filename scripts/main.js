@@ -154,10 +154,11 @@ function searchPost(){
 }
 
 function searchAnything(){
-    console.log(arrPosts)
-    console.log(arrUsers)
+  let searchTerm = document.querySelector("#search-anything")
+  console.log(searchTerm.value)
   let join = arrUsers.concat(arrPosts).concat(arrLocations)
   console.log ("Joined",join)
+  
 }
 
 function resetPosts(){

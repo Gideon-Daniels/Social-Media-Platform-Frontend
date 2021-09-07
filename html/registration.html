@@ -5,34 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles/registration.css">
+    <script
+    src="https://kit.fontawesome.com/a549f23a3b.js"
+    crossorigin="anonymous"
+  ></script>
 </head>
 <body>
-    <h1>Registration Page</h1>
-    <a href="./login.html">Login</a>
-    <a href="../index.html">HOME</a>
+    <header>
+        <h1 class="heading">
+            <span class="cog"><i class="fas fa-cog"></i></span>
+            Stay Connected
+            <span class="cog"><i class="fas fa-cog"></i></span>
+         </h1>
+            
+        <ul class="links">
+            <li class="link"><a href="./login.html">Login</a></li>
+            <li class="link"><a href="../index.html">HOME</a></li>
+        </ul>
+     </header>  
 
-    <form onsubmit="event.preventDefault(); registration();" id="signup">
-        <div class="basic-details-inputs">
-            <input id="name"  type="text" class="input" placeholder="Name">
-            <input id="surname" type="text" class="input" placeholder="Surname">
-            <input id="email" type="text" class="input" placeholder="Email">
-            <input id="password" type="text" class="input" placeholder="Password">
-        </div>
-       
-        <span id="error-basic-details"></span>
-        <div class="location-details-inputs">
-            <input id="address" type="text" class="input" placeholder="Address">
-            <input id="suburb" type="text" class="input" placeholder="Suburb">
-            <input id="postal-code" type="text" class="input" placeholder="Postal Code">
-            <input id="city" type="text" class="input" placeholder="City">
-            <input id="province" type="text" class="input" placeholder="Province">
-        </div>
-        <span id="error-location-details"></span>
-        <div class="buttons">
-            <button type="submit" class="button">Submit</button>
-        </div>
-    
-    </form>
+     <section class="landing">
+         
+        <form onsubmit="event.preventDefault(); registration();" id="signup">
+            <h1>Signup</h1>
+            <h3> Basic Information </h3>
+            <div class="basic-details-inputs">
+                <input id="name"  type="text" class="input" placeholder="Name">
+                <input id="surname" type="text" class="input" placeholder="Surname">
+                <input id="email" type="text" class="input" placeholder="Email">
+                <input id="password" type="text" class="input" placeholder="Password">
+            </div>
+           
+            <span id="error-basic-details"></span>
+            <h3> Location Information</h3>
+            <div class="location-details-inputs">
+                <input id="address" type="text" class="input" placeholder="Address">
+                <input id="suburb" type="text" class="input" placeholder="Suburb">
+                <input id="postal-code" type="text" class="input" placeholder="Postal Code">
+                <input id="city" type="text" class="input" placeholder="City">
+                <input id="province" type="text" class="input" placeholder="Province">
+            </div>
+            <span id="error-location-details"></span>
+            <div class="buttons">
+                <button type="submit" class="button">Submit</button>
+            </div>
+        
+        </form>
+     </section>
 
     <script src="../scripts/loginAndRegistration.js"></script>
 </body>

@@ -3,10 +3,17 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+:root{
+    --primary: cornflowerblue;
+    --secondary:#e0e0e0;
+}
+
 body{
     font-family: sans-serif;
-    min-height: 100vh;
-    /* background-color: silver; */
+    min-height: 100%;
+    background-color: var(--secondary);
+    color: white;
 }
 /* global styles */
 img{
@@ -14,17 +21,44 @@ img{
     height: 100px;
 }
 /* header section */
-#header{
+.navbar{ 
+    background-color: var(--primary);
     display: flex;
     justify-content: space-between;
-    height: 10vh;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+    gap: 5px;
+    width: 100%;
 }
-.navbar{
+
+.navbar .heading {
     display: flex;
-    justify-content: space-between;
-    width: 80%;
-    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+
+.search-input{
+    background-color: var(--secondary);
+    color:var(--primary);
+    border:none;
+    outline: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    
+}
+
+.button-submit, .button-reset{
+    background-color: var(--secondary);
+    padding: 5px 10px;
+    border-radius: 20px;
+    outline: none;
+    border:none;
+    color: var(--primary);
+    cursor: pointer;
+}
+
 /* main section */
 #main{
     display: flex;
@@ -33,12 +67,34 @@ img{
     gap: 5px;
     padding: 20px;
 }
+/* --------------------Left Section--------------------------- */
+#left{
+    /* background-color: var(--primary); */
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+#profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap:5px;
+    border-bottom: 5px solid var(--secondary);
+    background-color: var(--primary);
+    padding: 5px 5px;
+}
 /* -----------------------Mid Section */
 #mid{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    background-color: var(--primary);
+    padding: 5px;
 }
 
 #mid .buttons {
@@ -51,6 +107,9 @@ img{
     display: flex;
     flex-direction: column;
     /* align-items: center; */
+    padding: 5px;
+    border:solid 2px rgb(125, 163, 233);
+    box-shadow: 2px 2px slategray;
     
 }
 .heading{
