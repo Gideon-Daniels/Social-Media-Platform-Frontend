@@ -7,18 +7,19 @@
 }
 
 :root {
-    --primary: #04AA6D;
+    --primary: cornflowerblue;
     --secondary: #e0e0e0;
     --border: white;
     --button:#e0e0e0;
+    --box-shadow: slategrey;
 }
 
 body{
     color: white;
     background-color: var(--button);
     font-family: sans-serif;
-    height: 100vh;
-    overflow: auto;
+    min-height: 100vh;
+    /* overflow: auto; */
 }
 
 /* ------------------header------------------ */
@@ -37,6 +38,9 @@ header{
     justify-content: center;
     align-items: center;
     text-align: center;
+    text-shadow: 2px 2px var(--box-shadow);
+    border-radius: 5px;
+    padding: 5px;
 }
 .links{
     display: flex;
@@ -53,6 +57,7 @@ header{
     color: var(--primary);
     padding: 10px;
     transition: box-shadow 0.2s linear;
+    box-shadow:2px 2px 5px var(--box-shadow);
 }
 
 .link a:hover{
@@ -65,23 +70,23 @@ header{
     background-color: var(--button);
     max-width: 100vw;
     min-width: 20vw;
-    min-height: 85vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 #login-form{
     background-color: var(--primary);
-    height: 70vh;
+    /* height: 70vh; */
     width: 90vw;
-    max-height: 70vh;
+    /* max-height: 70vh; */
     max-width: 61vw;
     padding: 10px 0px;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 20px;
     box-shadow: 2px 2px 5px var(--primary);
 }
 #login-form .inputs{
@@ -103,6 +108,7 @@ header{
     color: var(--primary);
     width: 100px;
     min-width: 60%;
+    box-shadow: 2px 2px 5px var(--box-shadow);
 }
 .inputs .input::placeholder{
     color: var(--primary);
@@ -117,17 +123,18 @@ header{
     text-transform: uppercase;
     font-size: 20px;
     cursor: pointer;
+    box-shadow: 2px 2px 5px var(--box-shadow);
     transition: box-shadow 0.2s linear;
 }
 .buttons .button:hover{
     box-shadow: 0px 0px 15px  var(--button);
 }
 #login-form h1{
-    background-color: var(--button);
+    background-color: white;
     color: var(--primary);
-    width: 100%;
+    width: 95%;
     text-align: center;
-    /* box-shadow:0px 0px 2px 2px var(--secondary) ; */
+    box-shadow: 2px 2px 2px var(--box-shadow);
 }
 /* -----------------------------------------Animation For Cogs---------------------------------- */
 .cogs{
@@ -139,12 +146,13 @@ header{
 
 .cogs .cog{
     font-size: 50px;
-    color: var(--button);
+    color: white;
     /* width: 100%; */
     display: flex;
     justify-content: center;
     /* gap: 5px; */
     margin-left: -7px;
+    text-shadow: 2px 2px var(--box-shadow);
 }
 
 .cogs .cog:nth-child(1){
@@ -171,7 +179,9 @@ header{
 /* --------------------------footer-------------- */
 
 footer{  
+    position: absolute;
+    bottom: 0;
     background-color: var(--primary);
     width: 100%;
-    height: 15vh;
+    height: 50px;
 }

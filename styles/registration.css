@@ -7,10 +7,11 @@
 }
 
 :root {
-    --primary: #04AA6D;
+    --primary: cornflowerblue;
     --border: #e0e0e0;
     --font: white;
     --secondary:#e0e0e0;
+    --box-shadow:slategrey;
 }
 
 body{
@@ -30,12 +31,14 @@ header{
     flex-wrap: wrap;
     padding: 10px 10px;
     gap: 5px;
+  
 }
 .heading{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    text-shadow: 2px 2px var(--box-shadow);
 }
 .links{
     display: flex;
