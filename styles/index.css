@@ -156,4 +156,7 @@ footer{
     #landing{
         max-width: none;
     }
+    footer{
+        height: 36px;
+    }
  }
