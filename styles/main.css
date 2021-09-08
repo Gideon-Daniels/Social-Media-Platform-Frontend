@@ -267,25 +267,34 @@ footer{
 #modal-container.show{
     pointer-events: auto;
     opacity: 1;
+    z-index: 2;
 }
 
 .modal{
-    width: 600px;
+    width: 80%;
     max-width: 100%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 2px 2px var(--box-shadow);
 }
 
 .modal h1{
-    color: whitesmoke;
+    color: var(--primary);
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+    background-color: var(--primary);
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 2px 2px var(--box-shadow);
 }
 
 .close{
     position: fixed;
-    right: 80px;
-    top: 80px;
-    color: whitesmoke;
+    right: 0;
+    top: 0;
+    margin-right: 15px;
+    color: var(--primary);
     cursor: pointer;
     font-size: 50px;
 }
@@ -296,6 +305,14 @@ footer{
     gap: 10px;
 }
 
+#post-content{
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    outline: none;
+    padding: 10px;
+    box-shadow: -1px -1px var(--primary);
+    height: 290px;
+}
 
 footer{
     position: fixed;

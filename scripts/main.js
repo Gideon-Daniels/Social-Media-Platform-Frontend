@@ -165,7 +165,7 @@ function searchAnything(){
 
 function resetPosts(){
     document.querySelector("#post-search-error").innerHTML = ""
-    displayPosts(arrPosts)
+    displayPosts(arrPosts.reverse())
 }
 
 function resetUsers(){
