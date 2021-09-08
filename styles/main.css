@@ -72,6 +72,8 @@ footer{
     align-items: center;
     text-align: center;
     text-shadow: 2px 2px var(--box-shadow);
+
+    margin: 2px 0px;
 }
 
 .navbar .button{
