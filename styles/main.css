@@ -7,6 +7,19 @@
 :root{
     --primary: cornflowerblue;
     --secondary:#e0e0e0;
+    --container:white;
+    --box-shadow:slategrey;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: var(--container);
+}
+  
+  ::-webkit-scrollbar-thumb {
+    background-color:var(--primary);/*Gives background color to the scrollbar*/
+    border-radius: 2px;
+    outline: var(--secondary) 2px solid;
 }
 
 body{
@@ -19,6 +32,16 @@ body{
 img{
     width: 100px;
     height: 100px;
+}
+button{
+    padding: 5px 5px;
+    background-color: var(--secondary);
+    border: none;
+    outline: none;
+    color: var(--primary);
+    box-shadow: 2px 2px var(--box-shadow);
+    transition: all 0.3s linear;
+    cursor: pointer;
 }
 /* header section */
 .navbar{ 
@@ -58,7 +81,9 @@ img{
     color: var(--primary);
     cursor: pointer;
 }
-
+#post-search-error, #user-search-error{
+    color: var(--box-shadow);
+}
 /* main section */
 #main{
     display: flex;
@@ -66,10 +91,12 @@ img{
     justify-content: space-between;
     gap: 5px;
     padding: 20px;
+    max-height: 83vh;
+    position: relative;
 }
 /* --------------------Left Section--------------------------- */
 #left{
-    /* background-color: var(--primary); */
+    /* background-color: var(--container); */
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -83,24 +110,51 @@ img{
     align-items: center;
     text-align: center;
     gap:5px;
-    border-bottom: 5px solid var(--secondary);
+    box-shadow: 2px 2px var(--box-shadow);
     background-color: var(--primary);
     padding: 5px 5px;
 }
+
 /* -----------------------Mid Section */
 #mid{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    background-color: var(--primary);
-    padding: 5px;
+    background-color: var(--container);
+    padding: 0px 5px;
+    position: relative;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+#search-posts, #search-users{
+    position: sticky;
+    /* z-index: 2; */
+    background-color: white;
+    display: flex;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 5px 0px;
+    gap: 5px;
 }
 
 #mid .buttons {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    padding: 5px 5px;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+
+#mid .buttons button:hover{
+    box-shadow: 0px 0px 10px var(--primary);
 }
 /* ----------------------------Posts Section */
 #post{
@@ -110,23 +164,61 @@ img{
     padding: 5px;
     border:solid 2px rgb(125, 163, 233);
     box-shadow: 2px 2px slategray;
-    
+    background-color: var(--primary);
+    margin-bottom: 5px;
 }
+
 .heading{
     display: flex;
+    gap : 10px;
+    margin-bottom: 8px;
 }
+
 .heading img{
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
 }
+.user-details .sub-title{
+    font-size: 12px;
+}
+
+.content .title {
+    text-align: center;
+}
+/* ---------------------------------right section----------------------- */
+#right{
+    background-color: var(--container);
+    padding: 0px 5px;
+    overflow: auto;
+}
+
 #search-users{
     display: flex;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
 }
+
 #users-container{
     display: flex;
     flex-direction: column;
+    gap: 10px; 
+}
+#users-container .user{
+    background-color: var(--primary);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 20px;
+    box-shadow: 2px 2px var(--box-shadow);
+    text-align: center;
+}
+
+.user .buttons {
+    margin-bottom: 5px;
 }
 /* footer section */
 
@@ -179,3 +271,39 @@ img{
 }
 
 
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--primary);
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ---------------------Media Queries */
+@media screen and (max-width: 850px) {
+    #left #profile{
+        display: none;
+    }
+  }
+
+  @media screen and (max-width: 710px) {
+    #right{
+        display: none;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+   #mid .buttons{
+       top: 33px;
+       background-color: white;
+   }
+   #search-posts{
+       flex-wrap: wrap;
+   }
+   .navbar{
+       justify-content: center;
+   }
+  }

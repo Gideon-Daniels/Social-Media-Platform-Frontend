@@ -31,10 +31,12 @@ function showUsers(users){
     container.innerHTML = "";
     users.forEach(user => {
         container.innerHTML += `
+        <div class="user">
         <img src="${user.profile_picture}" alt="${user.user_id}">
         <h3 class="title">${user.name} ${user.surname}</h3>
         <div class="buttons">
             <button class="button">VIEW</button>
+        </div>
         </div>
         `;
     });
@@ -76,7 +78,7 @@ function displayPosts(posts){
     console.log("Posts",posts)
     
     // Loop over data and write to container
-    posts.forEach(post => {
+    posts.reverse().forEach(post => {
         // arrPosts.push(post)
         // get user for this post 
         let user = findUser(post.user_id)
@@ -94,7 +96,7 @@ function displayPosts(posts){
             </div>
             <div class="content"> 
                 <h3 class="title">${post.title}</h3>             
-                <p>${post.content}</p>
+                <p class="information">${post.content}</p>
             </div>                   
     </div>
         `
