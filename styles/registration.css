@@ -20,6 +20,7 @@ body{
     font-family: sans-serif;
     height: 100vh;
     overflow: auto;
+    scroll-behavior: smooth;
 }
 
 /* ------------------header------------------ */
@@ -156,3 +157,14 @@ footer{
     align-items: center;
     text-align: center;
 }
+
+/* ---------------------Media Queries--------------- */
+
+@media screen and (max-width: 320px) {
+    #signup{
+        height: 75vh;
+        overflow: scroll;
+        padding: 5px 0px;
+    }
+    
+  }
