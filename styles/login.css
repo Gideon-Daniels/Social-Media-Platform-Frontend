@@ -106,8 +106,8 @@ header{
     outline: none;
     padding: 20px;
     color: var(--primary);
-    width: 100px;
-    min-width: 60%;
+    width: 90%;
+    max-width: 70%;
     box-shadow: 2px 2px 5px var(--box-shadow);
 }
 .inputs .input::placeholder{
@@ -196,9 +196,6 @@ footer{
     }
     footer{
         height: 36px;
-    }
-    .inputs .input{
-        width: 250px;
     }
  }
 
