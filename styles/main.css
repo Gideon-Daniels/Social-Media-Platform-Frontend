@@ -180,6 +180,9 @@ footer{
     box-shadow: 0px 0px 10px var(--primary);
 }
 /* ----------------------------Posts Section -----------------------*/
+.posts{
+    width: 100%;
+}
 #post{
     display: flex;
     flex-direction: column;
