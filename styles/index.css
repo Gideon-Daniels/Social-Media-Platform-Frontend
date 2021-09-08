@@ -23,7 +23,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100vh;
-overflow: auto;
+overflow: hidden;
 }
 /* ------------------header------------------ */
 header{
@@ -158,5 +158,11 @@ footer{
     }
     footer{
         height: 36px;
+    }
+ }
+
+ @media screen and (max-width: 375px) {
+    footer{
+        font-size: 15px;
     }
  }
