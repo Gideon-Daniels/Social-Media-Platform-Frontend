@@ -18,8 +18,6 @@ body{
     color: white;
     background-color: var(--secondary);
     font-family: sans-serif;
-    height: 100vh;
-    overflow: auto;
     scroll-behavior: smooth;
 }
 
@@ -81,11 +79,12 @@ header{
     display: flex; 
     flex-direction: column;
     align-items: center;
-    height: 80vh;
     width: 600px;
     background-color: var(--primary);
     gap: 10px;
     box-shadow: 2px 2px var(--box-shadow);
+    margin-bottom: 40px;
+    padding-bottom: 5px;
 }
 
 #signup .basic-details-inputs, 
@@ -160,11 +159,11 @@ footer{
 
 /* ---------------------Media Queries--------------- */
 
-@media screen and (max-width: 320px) {
+/* @media screen and (max-width: 320px) {
     #signup{
         height: 75vh;
         overflow: scroll;
         padding: 5px 0px;
     }
     
-  }
+  } */
