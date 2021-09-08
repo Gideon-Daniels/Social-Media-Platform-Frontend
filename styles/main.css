@@ -148,6 +148,7 @@ footer{
     position: relative;
     overflow: auto;
     scroll-behavior: smooth;
+    width: 100%;
 }
 
 #search-posts, #search-users{
