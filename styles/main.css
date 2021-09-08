@@ -149,6 +149,7 @@ footer{
     overflow: auto;
     scroll-behavior: smooth;
     width: 100%;
+    margin-bottom: 40px;
 }
 
 #search-posts, #search-users{
