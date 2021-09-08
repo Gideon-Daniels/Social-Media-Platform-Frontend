@@ -151,3 +151,9 @@ footer{
     text-transform: uppercase;
 }
 
+/* ------------------MEDIA QUERRIES----------------------- */
+@media screen and (max-width: 375px) {
+    #landing{
+        max-width: none;
+    }
+ }
