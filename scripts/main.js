@@ -35,7 +35,7 @@ function showUsers(users){
         <img src="${user.profile_picture}" alt="${user.user_id}">
         <h3 class="title">${user.name} ${user.surname}</h3>
         <div class="buttons">
-            <button class="button">VIEW</button>
+            <button id="view-user" class="button" onclick="viewUser(${user.user_id});">VIEW</button>
         </div>
         </div>
         `;
@@ -155,13 +155,19 @@ function searchPost(){
     }
 }
 
-function searchAnything(){
-  let searchTerm = document.querySelector("#search-anything")
-  console.log(searchTerm.value)
-  let join = arrUsers.concat(arrPosts).concat(arrLocations)
-  console.log ("Joined",join)
+// function searchAnything(){
+//   let searchTerm = document.querySelector("#search-anything").value
+//   console.log(searchTerm)
+//   let join = arrUsers.concat(arrPosts).concat(arrLocations)
+//   console.log ("Joined",join)
+//   console.log(join.email)
+//   let searchAny = join.filter( (searchAny) => 
+//     searchAny.email.toLowerCase().includes(searchTerm.toLowerCase()) || searchAny.name.toLowerCase().includes(searchTerm.toLowerCase()) 
+//   )
+
+//   console.log(searchAny)
   
-}
+// }
 
 function resetPosts(){
     document.querySelector("#post-search-error").innerHTML = ""
@@ -220,7 +226,7 @@ function fetchLocations(){
     .then( res => {
         arrLocations = res.data
         console.log("Locations",arrLocations)
-        searchAnything()
+        // searchAnything()
     }) 
 }
 
@@ -237,3 +243,33 @@ open.addEventListener('click', ()=> {
 close.addEventListener('click',(e)=> {
     modalContainer.classList.remove("show")
 });
+
+
+
+// ----------------------------VIEW USER MODAL----------------------//
+
+
+function viewUser(id){
+    let modalContainer = document.querySelector(".modal-user")
+
+        let user_ = arrUsers.find( (user) => user.user_id == id);
+        console.log(user_)
+        let location_ = arrLocations.find( (location) => location.location_id == id);
+        console.log(location_)
+        modalContainer.innerHTML = "";
+        modalContainer.innerHTML += `
+                    <span id="close-user" onclick="toggleModal()" class="close-user">x</span>
+                    <img src="${user_.profile_picture}" alt="">
+                    <h3 class="fullname">${user_.name} ${user_.surname}</h3>
+                    <h3 class="email">${user_.email}</h3>
+                    <h3 class="suburb">${location_.suburb}</h3>
+                    <h3 class="province">${location_.province}</h3>
+        `
+    toggleModal()
+
+}
+
+function toggleModal(){
+    document.querySelector("#modal-user-container").classList.toggle("show")
+}
+

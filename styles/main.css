@@ -269,6 +269,7 @@ footer{
     pointer-events: none;
     transition: opacity 0.5s ease-in;
 }
+/* displays modal to screen */
 #modal-container.show{
     pointer-events: auto;
     opacity: 1;
@@ -304,6 +305,50 @@ footer{
     font-size: 50px;
 }
 
+/* --------------------------modal user */
+#modal-user-container{
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in;
+}
+#modal-user-container.show{
+    pointer-events: auto;
+    opacity: 1;
+    z-index: 2;
+}
+
+.modal-user{
+    /* width: 80%; */
+    /* max-width: 100%; */
+    background-color: var(--primary);
+    padding: 20px;
+    box-shadow: 2px 2px var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.close-user{
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin-right: 15px;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 50px;
+}
+/* ---------------------------------END OF MODAL USER */
 #create-post{
     display: flex;
     flex-direction: column;
