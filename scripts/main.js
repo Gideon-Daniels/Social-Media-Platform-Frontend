@@ -272,4 +272,15 @@ function viewUser(id){
 function toggleModal(){
     document.querySelector("#modal-user-container").classList.toggle("show")
 }
+// -------------------------------Update/Delete--------------------------//
 
+function DeletePost(id){
+    fetch("https://social-media-back-end.herokuapp.com/posts/")
+    .then( res=> res.json())
+    .then( res=> {
+        arrPosts = res.data
+        
+        
+    })
+}
+DeletePost()

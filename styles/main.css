@@ -328,7 +328,7 @@ footer{
 
 .modal-user{
     /* width: 80%; */
-    /* max-width: 100%; */
+    max-width: 100%;
     background-color: var(--primary);
     padding: 20px;
     box-shadow: 2px 2px var(--box-shadow);
@@ -337,7 +337,9 @@ footer{
     justify-content: center;
     align-items: center;
     gap: 5px;
+   
 }
+   
 
 .close-user{
     position: fixed;
