@@ -499,8 +499,9 @@ footer{
 }
 /* ---------------------Media Queries */
 @media screen and (max-width: 850px) {
-    #left #profile{
+    #left {
         display: none;
+        position: absolute;
     }
   }
 

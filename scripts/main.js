@@ -208,9 +208,14 @@ function searchUser(){
     let showError = document.querySelector("#user-search-error");
     console.log(searchTerm)
     // filter users array to check if user exists
-    let userSearched = arrUsers.filter((user) => /*dont need curly braces and return keyword since return state is one line */ 
-    user.name.toLowerCase().includes(searchTerm.toLowerCase()) /*Returns user with the name that include name from input*/
-    );
+    let userSearched = arrUsers.filter((user) =>{ /*dont need curly braces and return keyword since return state is one line */ 
+     if( user.name.toLowerCase().includes(searchTerm.toLowerCase())){
+        return user.name
+    }    
+     else if(user.surname.toLowerCase().includes(searchTerm.toLowerCase())){
+        return user.surname
+        } /*Returns user with the name that include name from input*/
+    });
     // condition to check if usersSearched lenght is greater then 0 and to check if input is empty
     showError.innerHTML = "";
     if (userSearched.length == 0){
