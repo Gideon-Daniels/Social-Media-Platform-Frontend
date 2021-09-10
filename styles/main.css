@@ -6,7 +6,7 @@
 
 :root{
     --primary: cornflowerblue;
-    --secondary:#e0e0e0;
+    --secondary:white;
     --container:white;
     --box-shadow:slategrey;
 }
@@ -29,14 +29,18 @@ body{
     color: white;
 }
 /* global styles */
+h1 , h2, h3, p{
+    pointer-events: none;
+}
 img{
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 button{
     padding: 5px 5px;
     background-color: var(--secondary);
-    border: none;
+    border: 1px solid var(--box-shadow);
     outline: none;
     color: var(--primary);
     box-shadow: 2px 2px var(--box-shadow);
@@ -49,9 +53,11 @@ h3{
 }
 
 .navbar, #profile, #right, #mid{
+    
     box-shadow: 2px 2px var(--box-shadow);
 }
 footer{
+    
     box-shadow: 0px -2px var(--box-shadow);
 }
 /* header section */
@@ -87,7 +93,8 @@ footer{
 .search-input{
     background-color: var(--secondary);
     color:var(--primary);
-    border:none;
+    border: solid 1px var(--box-shadow);
+    box-shadow: 2px 2px var(--box-shadow);
     outline: none;
     border-radius: 20px;
     padding: 5px 10px;
@@ -96,12 +103,11 @@ footer{
 
 .button-submit, .button-reset{
     background-color: var(--secondary);
-    padding: 5px 10px;
-    border-radius: 20px;
+    
     outline: none;
-    border:none;
     color: var(--primary);
     cursor: pointer;
+    border: solid 1px var(--box-shadow);
 }
 #post-search-error, #user-search-error{
     color: var(--box-shadow);
@@ -112,18 +118,18 @@ footer{
     width: 100%;
     justify-content: space-between;
     gap: 5px;
-    padding: 20px;
+    padding: 10px 15px;
     max-height: 83vh;
     position: relative;
 }
 /* --------------------Left Section--------------------------- */
 #left{
-    /* background-color: var(--container); */
     padding: 5px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
+    margin-bottom: 40px;
+    width: 20%;
 }
 
 #profile{
@@ -134,7 +140,11 @@ footer{
     gap:5px;
     box-shadow: 2px 2px var(--box-shadow);
     background-color: var(--primary);
-    padding: 5px 5px;
+   width: 100%;
+}
+
+#profile .title{
+    padding: 2px;
 }
 
 /* -----------------------Mid Section */
@@ -199,6 +209,7 @@ footer{
     display: flex;
     gap : 10px;
     margin-bottom: 8px;
+    flex-wrap: wrap;
 }
 
 .heading img{
@@ -217,6 +228,8 @@ footer{
     background-color: var(--container);
     padding: 0px 5px;
     overflow: auto;
+    margin-bottom: 40px;
+    width: 20%;
 }
 
 #search-users{
@@ -225,6 +238,12 @@ footer{
     flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
+    padding: 5px;
+    width: 100%;
+}
+
+#search-users .search-input{
+    width: 100%;
 }
 
 #users-container{
@@ -328,7 +347,6 @@ footer{
 }
 
 .modal-user{
-    /* width: 80%; */
     max-width: 100%;
     background-color: var(--primary);
     padding: 20px;
@@ -338,7 +356,16 @@ footer{
     justify-content: center;
     align-items: center;
     gap: 5px;
-   
+}
+.modal-user img{
+    width: 200px;
+    height: 200px;
+}
+
+.modal-user h3{
+    font-size: 16px;
+    width: 100%;
+    line-break: anywhere;
 }
    
 
@@ -395,6 +422,7 @@ footer{
     color: white;
     padding: 5px;
     text-transform: uppercase;
+    text-shadow: 2px 2px var(--box-shadow);
     justify-content: center;
 }
 
@@ -425,7 +453,21 @@ height: 10%;
     height: 80%;
  }
 
+ .post-buttons {
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+    height: 25px;
+}
 
+.post-buttons .button{
+    width: 100px;  
+    transition: all 0.4s linear;  
+}
+
+.post-buttons .button:hover {
+    box-shadow: 2px 2px 15px var(--secondary);
+}
 
 /* End of Modal Edit Post */
 #create-post{
@@ -480,4 +522,11 @@ footer{
    .navbar{
        justify-content: center;
    }
+   .post-buttons {
+    width: 100%;
+    }
+   .post-buttons .button{
+    width: 50%;    
+    }
+    
   }

@@ -330,10 +330,12 @@ function viewUser(id){
         modalContainer.innerHTML += `
                     <span id="close-user" onclick="toggleModal()" class="close-user">x</span>
                     <img src="${user_.profile_picture}" alt="">
-                    <h3 class="fullname">${user_.name} ${user_.surname}</h3>
-                    <h3 class="email">${user_.email}</h3>
-                    <h3 class="suburb">${location_.suburb}</h3>
-                    <h3 class="province">${location_.province}</h3>
+                    
+                        <h3 class="fullname">${user_.name} ${user_.surname}</h3>
+                        <h3 class="email">${user_.email}</h3>
+                        <h3 class="suburb">${location_.suburb}</h3>
+                        <h3 class="province">${location_.province}</h3>
+                    
         `
     toggleModal()
 
