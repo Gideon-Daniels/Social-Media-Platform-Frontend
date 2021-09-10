@@ -253,8 +253,9 @@ footer{
 }
 /* footer section */
 
+/* ---------------------------------------------MODALS-------------------- */
 
-/* Modal Section */
+/* Create Post Modal Section */
 #modal-container{
     background-color: rgba(0,0,0,0.7);
     position: fixed;

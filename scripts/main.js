@@ -43,8 +43,6 @@ function showUsers(users){
     console.log("Users",arrUsers);
 }
 
-
-
 function showUserLoggedIn(){
     let container = document.getElementById("profile")
     container.innerHTML =`
@@ -61,13 +59,12 @@ function fetchPosts(){
     fetch("https://social-media-back-end.herokuapp.com/posts/")
     .then( res=> res.json())
     .then( res=> {
-        arrPosts = res.data
-        console.log(res.data)
-        displayPosts(res.data)
-        
+        arrPosts = res.data;
+        console.log(res.data);
+        displayPosts(res.data);
+        findPosts();
     })
 }
-
 
 function displayPosts(posts){
     // Select container  
@@ -89,10 +86,13 @@ function displayPosts(posts){
     <div id="post">
             <div class='heading'>
                 <img src=${user.profile_picture} alt="${post.user_id}">
-            <div class="user-details">
-                <h3 class="title">${user.name} ${user.surname}</h3>
-                <h3 class="sub-title">${arrDateTime[0]}</h3>
-            </div>
+                <div class="user-details">
+                    <h3 class="title">${user.name} ${user.surname}</h3>
+                    <h3 class="sub-title">${arrDateTime[0]}</h3>
+                </div>
+                <div class="post-buttons">
+                    ${ loggedInUserButtons(post.user_id, post.post_id) }
+                </div>
             </div>
             <div class="content"> 
                 <h3 class="title">${post.title}</h3>             
@@ -100,7 +100,53 @@ function displayPosts(posts){
             </div>                   
     </div>
         `
+        // if (){
+
+        // }
     });
+}
+// Function add buttons to the users posts , the user that is currently logged in.
+function loggedInUserButtons(userId,postId){
+    return user.user_id == userId ?
+         `<button class="button" onclick="editPost(${postId},${userId}); showEditForm(${postId});">Edit</button>
+         <button  class="button" onclick="deletePost(${postId})">Delete</button>` : ''
+}
+
+function editPost(postId,user_id){
+        fetch(`https://social-media-back-end.herokuapp.com/posts/${postId}`,{   
+            method:"PUT",
+            body:JSON.stringify({
+                user_id,
+                title,
+                content
+            }),
+            headers:{
+                'content-type':'application/json; charset=UTF-8',
+                'Access-Control-Allow-Origin': '*',
+            }
+        })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+            fetchPosts();
+        })
+    }
+
+
+function deletePost(postId){
+
+    fetch(`https://social-media-back-end.herokuapp.com/post/${postId}`,{
+        method:"DELETE",
+        headers:{
+            'content-type':'application/json; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*',
+        }
+    })
+    .then( res=> res.json())
+    .then( res=> {
+        console.log(res)
+        fetchPosts()
+    })
 }
 
 function findUser(id){
@@ -110,6 +156,16 @@ function findUser(id){
     });
     return user
 }
+
+function findPosts(){
+    console.log(user.user_id)
+    let id = user.user_id
+    let usersPosts = arrPosts.filter(posts => {
+        return posts.user_id == id
+    });
+    return usersPosts
+}
+
 // -------------------------------------------SEARCH FUNCTIONALITY--------------------------
 
 function searchUser(){
@@ -272,15 +328,10 @@ function viewUser(id){
 function toggleModal(){
     document.querySelector("#modal-user-container").classList.toggle("show")
 }
-// -------------------------------Update/Delete--------------------------//
+// -------------------------------Edit Post Modal--------------------------//
 
-function DeletePost(id){
-    fetch("https://social-media-back-end.herokuapp.com/posts/")
-    .then( res=> res.json())
-    .then( res=> {
-        arrPosts = res.data
-        
-        
-    })
-}
-DeletePost()
+// function showEditForm(post_id){
+
+// }
+
+
