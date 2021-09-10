@@ -519,6 +519,10 @@ footer{
    #search-posts{
        flex-wrap: wrap;
    }
+   #search-posts .search-input{
+    width: 60%;
+}
+
    .navbar{
        justify-content: center;
    }
