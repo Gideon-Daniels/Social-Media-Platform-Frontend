@@ -352,6 +352,82 @@ footer{
     font-size: 50px;
 }
 /* ---------------------------------END OF MODAL USER */
+
+/* Modal Edit Post */
+#modal-edit-post-container{
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in;
+    color: var(--primary);
+}
+
+#modal-edit-post-container.show{
+    pointer-events: auto;
+    opacity: 1;
+    z-index: 2;
+}
+
+#edit-form {
+    width: 80%;
+    height: 80%;
+    max-width: 100%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 2px 2px var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-form .heading{
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    padding: 5px;
+    text-transform: uppercase;
+    justify-content: center;
+}
+
+#edit-form .inputs {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 100%;
+    gap: 5px;
+    border-radius: 20px;
+    
+}
+
+.inputs .title, .inputs .content{
+    border: 1px solid var(--box-shadow);
+    outline: none;
+    padding: 5px 20px;
+    color: var(--primary);
+    box-shadow: 2px 2px var(--box-shadow);
+
+}
+
+.inputs .title{
+height: 10%;
+
+}
+.inputs .content{
+    height: 80%;
+ }
+
+
+
+/* End of Modal Edit Post */
 #create-post{
     display: flex;
     flex-direction: column;

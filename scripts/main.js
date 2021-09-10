@@ -60,7 +60,6 @@ function fetchPosts(){
     .then( res=> res.json())
     .then( res=> {
         arrPosts = res.data;
-        console.log(res.data);
         displayPosts(res.data);
         findPosts();
     })
@@ -76,8 +75,7 @@ function displayPosts(posts){
     
     // Loop over data and write to container
     posts.reverse().forEach(post => {
-        // arrPosts.push(post)
-        // get user for this post 
+    
         let user = findUser(post.user_id)
         console.log(user);
         let datepublished = post.date_published
@@ -100,25 +98,36 @@ function displayPosts(posts){
             </div>                   
     </div>
         `
-        // if (){
-
-        // }
+      
     });
 }
 // Function add buttons to the users posts , the user that is currently logged in.
 function loggedInUserButtons(userId,postId){
     return user.user_id == userId ?
-         `<button class="button" onclick="editPost(${postId},${userId}); showEditForm(${postId});">Edit</button>
+         `<button class="button" onclick=" showEditForm(${postId}); editPost(${postId},${userId});">Edit</button>
          <button  class="button" onclick="deletePost(${postId})">Delete</button>` : ''
 }
 
-function editPost(postId,user_id){
-        fetch(`https://social-media-back-end.herokuapp.com/posts/${postId}`,{   
+function editPost(postId, user_id){
+    let editPost = document.querySelector("#edit-form")
+    
+    // when event eventlistern submit is clicked it will post data to the backend
+    editPost.addEventListener('submit', (e) => {
+        e.preventDefault();
+    
+        let title = document.querySelector("#edit-post-title").value;
+        let content = document.querySelector("#edit-post-content").value;
+        console.log("Editor Id",user_id)
+        console.log("Edit title",title)
+        console.log("Edit content",content)
+        console.log("PostId", postId)
+        // Method to update title
+        fetch(`https://social-media-back-end.herokuapp.com/post/${postId}`,{   
             method:"PUT",
             body:JSON.stringify({
                 user_id,
                 title,
-                content
+    
             }),
             headers:{
                 'content-type':'application/json; charset=UTF-8',
@@ -130,6 +139,32 @@ function editPost(postId,user_id){
             console.log(res)
             fetchPosts();
         })
+        // Method to update content
+        fetch(`https://social-media-back-end.herokuapp.com/post/${postId}`,{   
+            method:"PUT",
+            body:JSON.stringify({
+                user_id,
+                content,
+    
+            }),
+            headers:{
+                'content-type':'application/json; charset=UTF-8',
+                'Access-Control-Allow-Origin': '*',
+            }
+        })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+            fetchPosts();
+        })
+        // toggle modal
+        
+        let container = document.querySelector("#modal-edit-post-container")
+        container.classList.remove("show")
+       
+        // end of event listener
+    });
+        
     }
 
 
@@ -158,7 +193,7 @@ function findUser(id){
 }
 
 function findPosts(){
-    console.log(user.user_id)
+    // console.log(user.user_id)
     let id = user.user_id
     let usersPosts = arrPosts.filter(posts => {
         return posts.user_id == id
@@ -177,7 +212,6 @@ function searchUser(){
     user.name.toLowerCase().includes(searchTerm.toLowerCase()) /*Returns user with the name that include name from input*/
     );
     // condition to check if usersSearched lenght is greater then 0 and to check if input is empty
-    console.log(userSearched)
     showError.innerHTML = "";
     if (userSearched.length == 0){
         showError.innerHTML = "User does not exists"
@@ -210,20 +244,6 @@ function searchPost(){
         displayPosts(postSearched)
     }
 }
-
-// function searchAnything(){
-//   let searchTerm = document.querySelector("#search-anything").value
-//   console.log(searchTerm)
-//   let join = arrUsers.concat(arrPosts).concat(arrLocations)
-//   console.log ("Joined",join)
-//   console.log(join.email)
-//   let searchAny = join.filter( (searchAny) => 
-//     searchAny.email.toLowerCase().includes(searchTerm.toLowerCase()) || searchAny.name.toLowerCase().includes(searchTerm.toLowerCase()) 
-//   )
-
-//   console.log(searchAny)
-  
-// }
 
 function resetPosts(){
     document.querySelector("#post-search-error").innerHTML = ""
@@ -263,10 +283,6 @@ function addPost(user_id, title, content){
     })
     .then(res => res.json())
     .then(res => {
-        console.log(res)
-        console.log("title",title);
-        console.log("content", content)
-        console.log("User",user_id)
         setTimeout(function(){
             modalContainer.classList.remove("show")
         },1000)
@@ -281,8 +297,6 @@ function fetchLocations(){
     .then( res => res.json())
     .then( res => {
         arrLocations = res.data
-        console.log("Locations",arrLocations)
-        // searchAnything()
     }) 
 }
 
@@ -330,8 +344,26 @@ function toggleModal(){
 }
 // -------------------------------Edit Post Modal--------------------------//
 
-// function showEditForm(post_id){
-
-// }
+function showEditForm(post_id){
+    console .log("Form Created", post_id)
+    let post = arrPosts.find( post => post.post_id == post_id
+    );
+    console.log("Post found",post)
+    let container = document.querySelector("#modal-edit-post-container")
+    container.innerHTML = "";
+    container.classList.add("show")
+    container.innerHTML +=  `
+    <form id="edit-form">
+    <h2 class="heading"><span>Edit Post</span></h2>
+        <div class="inputs">
+            <input id="edit-post-title" class="title" required type="text" value="${post.title}">
+            <textarea  id="edit-post-content" class="content" name="content" required>${post.content}</textarea>
+        </div>
+        <div class="buttons">
+            <button class="button" type="submit">Submit</button>
+        </div>
+    </form>
+    `
+}
 
 
