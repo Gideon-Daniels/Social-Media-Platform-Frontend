@@ -469,6 +469,16 @@ height: 10%;
     box-shadow: 2px 2px 15px var(--secondary);
 }
 
+.remove-edit-modal{
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin-right: 15px;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 50px;
+}
+
 /* End of Modal Edit Post */
 #create-post{
     display: flex;

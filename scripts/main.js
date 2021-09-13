@@ -363,6 +363,7 @@ function showEditForm(post_id){
     <form id="edit-form">
     <h2 class="heading"><span>Edit Post</span></h2>
         <div class="inputs">
+            <span class="remove-edit-modal">X</span>
             <input id="edit-post-title" class="title" required type="text" value="${post.title}">
             <textarea  id="edit-post-content" class="content" name="content" required>${post.content}</textarea>
         </div>
@@ -371,6 +372,12 @@ function showEditForm(post_id){
         </div>
     </form>
     `
+    let removeContainer = document.querySelector(".remove-edit-modal");
+    console.log("RemoveContainer", removeContainer)
+    removeContainer.addEventListener('click', ()=>{
+        container.classList.toggle("show")
+    })
+
 }
 
 
