@@ -127,23 +127,6 @@ function editPost(postId, user_id){
             body:JSON.stringify({
                 user_id,
                 title,
-    
-            }),
-            headers:{
-                'content-type':'application/json; charset=UTF-8',
-                'Access-Control-Allow-Origin': '*',
-            }
-        })
-        .then(res => res.json())
-        .then(res => {
-            console.log(res)
-            fetchPosts();
-        })
-        // Method to update content
-        fetch(`https://social-media-back-end.herokuapp.com/post/${postId}`,{   
-            method:"PUT",
-            body:JSON.stringify({
-                user_id,
                 content,
     
             }),
