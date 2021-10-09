@@ -4,59 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <link rel="stylesheet" href="./styles/index.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles/index.css">
     <script
-      src="https://kit.fontawesome.com/a549f23a3b.js"
-      crossorigin="anonymous"
-    ></script>
+    src="https://kit.fontawesome.com/a549f23a3b.js"
+    crossorigin="anonymous"
+  ></script>
 </head>
 <body>
-     <header>
-         
-          <h1> <span class="cog">
-               <i class="fas fa-cog"></i>
-          </span> Stay Connected<span class="cog">
-               <i class="fas fa-cog"></i>
-          </span></h1>
-          
-     </header>
-     <section id="landing">
-          <div class="main">
-               <a href="./html/login.html">Login</a>
-               <a href="./html/registration.html">Signup</a>
-          </div>
-          <div class="description">
-               <h2>Mission</h2>
-               <p>Building a reliable and effective network for small businesses ,
-                     entrepreneurs , organizations and unemployed youth. We want 
-                     to connect all and everyone in the network .</p>
-          </div>
-          <div class="description">
-               <h2>Vision</h2>
-               <p>We want to help communities , organizations , small businesses , entrepreneurs 
-                  and unemployed build relationship amongst one another and work towards a better economy . 
-                  Having everyone under one network and helping each other within the network .</p>
-          </div>
-          <div class="cogs">
-               <span class="cog">
-                    <i class="fas fa-cog"></i>
-               </span>
-               <span class="cog"> 
-                    <i class="fas fa-cog"></i>
-               </span>
-               <span class="cog"> 
-                    <i class="fas fa-cog"></i>
-               </span>
-          </div>
-          
-     </section>
-     <footer>
-          <h3>created by Gideon Daniels</h3>
-     </footer>
-     
-    
-<!-- ------------------SCRIPTS------------------------ -->
-     <script src="./scripts/main.js"></script>
+    <!-- Header section -->
+    <header>
+       <h1 class="heading">
+           <span class="cog"><i class="fas fa-cog"></i></span>
+           Stay Connected
+           <span class="cog"><i class="fas fa-cog"></i></span>
+        </h1>
+    </header>
+    <!-- Landing section -->
+    <section class="landing">
+        <div class="left">
+            <img src="./images/Lightbulb-gears-removebg-preview.png" alt="">
+        </div>
+        <form onsubmit=" event.preventDefault(); login();" id="login-form">
+            <h1> Login </h1>
+            <div class="inputs">
+                <input id="email" class="input" type="text" placeholder="Email" required>
+                <input id="password" class="input" type="text" placeholder="Password" required>
+                <span id="error"></span>
+            </div>
+           
+            <div class="buttons">
+                <button type="submit" class="button">Login</button>
+                <button  onclick="signUp()" class="button signup" type="button">Signup</button>               
+            </div>
+        </form>
+    </section>
+    <footer>
+        <h3>Created By Gideon Daniels</h3>
+    </footer>
+
+    <!-- ----------------------scripts------------------>
+    <script src="../scripts/loginAndRegistration.js"></script>
 </body>
 </html>

@@ -10,135 +10,135 @@
     --primary: cornflowerblue;
     --secondary: #e0e0e0;
     --border: white;
+    --button:#e0e0e0;
     --box-shadow: slategrey;
 }
 
-
 body{
     color: white;
-background-color: var(--secondary);
-font-family: sans-serif;
-padding: 25px 25px;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-overflow: hidden;
+    background-color: var(--button);
+    font-family: sans-serif;
+    min-height: 100vh;
+    /* overflow: auto; */
 }
+
 /* ------------------header------------------ */
-header{
-    position: absolute;
-    top:0;
-    left: 0;
-    right: 0;
+header{ 
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+    gap: 5px;
+    box-shadow: 2px 2px var(--box-shadow);
+    margin: 5px 0px;
+}
+.heading{
+    display: flex;
+    /* width: 50%; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow: 2px 2px var(--box-shadow);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+/* -------------------landing------------------- */
+
+.landing{
+    background-color: var(--button);
+    height: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 100px 100px;
+    position: relative;
+}
+.landing .left{
+    width: 50%;
+    height: 100%;
+}
+.left img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#login-form{
     background-color: var(--primary);
-    padding: 5px 2px;
+    width: 50%;
+    padding: 10px 0px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 2px 2px 5px var(--primary);
+    border-radius: 10px;
+}
+#login-form .inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    gap: 20px;
+    width:100%;
+}
+
+.inputs .input{
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    padding: 20px;
+    color: var(--primary);
+    width: 90%;
+    max-width: 70%;
     box-shadow: 2px 2px 5px var(--box-shadow);
 }
-header h1{
-    color: white;
-    /* box-shadow: 2px 2px 5px var(--box-shadow); */
-    text-shadow: 2px 2px var(--box-shadow);
-}
-/* ------------------landing---------------------- */
-#landing {
-    background-color: var(--primary);
-    height: 70vh;
-    width: 90vw;
-    max-height: 70vh;
-    max-width: 61vw;
-    padding: 10px 5px;
-    overflow: auto;
-    color: white;
-}
-h1{
-    text-align: center;
-    background-color: var(--primary);
-    color: white;
-    padding: 5px 5px;
-}
-/* ------------------------main section--------------- */
-.main{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 10px;
-    gap:5px;
-}
-
-.main a{
-    color: white;
-    width: 100%;
-    padding: 5px 5px;
-    text-align: center;
-    border: var(--border) solid 2px;
-    transition: all 0.3s linear;
-}
-
-.main a:hover{
-    background-color: white;
-    border: var(--secondary) solid 2px;
+.inputs .input::placeholder{
     color: var(--primary);
 }
-
-.description{
-    margin-top:15px;
-    padding: 5px 5px;
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
 }
 
-.description h2{
+.buttons .button{
+    width: 200px;
+    height: 28px;
+    border: none;
+    outline: none;
+    background-color: var(--button);
+    color: var(--primary);
+    text-transform: uppercase;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px var(--box-shadow);
+    transition: box-shadow 0.2s linear;
+}
+
+.buttons .button:hover{
+    box-shadow: 0px 0px 15px  var(--button);
+}
+#login-form h1{
     background-color: white;
     color: var(--primary);
+    width: 95%;
     text-align: center;
-    padding: 2px 2px;
+    box-shadow: 2px 2px 2px var(--box-shadow);
 }
 
-.description p{
-    padding: 10px 10px;
-    line-height: 20px;
-    text-align: center;
-}
-.cogs{
-    display: flex;
-    justify-content: center;
-    gap: 7px;
-}
+/* --------------------------footer-------------- */
 
-.cogs .cog{
-    font-size: 50px;
-    color: white;
-    /* width: 100%; */
-    display: flex;
-    justify-content: center;
-    /* gap: 5px; */
-    margin-left: -7px;
-    text-shadow: 3px 3px var(--box-shadow);
-}
-
-.cogs .cog:nth-child(1){
-    /* transform: rotate(90deg); */
-    animation: rotate 5s infinite linear ;
-}
-
-.cogs .cog:nth-child(2){
-    /* transform: rotate(90deg); */
-    animation: rotate 5s 0.4s infinite reverse linear;
-}
-
-.cogs .cog:nth-child(3){
- 
-    animation: rotate 5s infinite linear;
-}
-
-@keyframes rotate{
-    from {transform: rotate(0deg);
-        }
-    to   {transform: rotate(359deg);
-        }
-}
-/* ---------------------footer------------------ */
-footer{
+footer{  
     position: fixed;
     bottom: 0;
     left: 0;
@@ -149,12 +149,35 @@ footer{
     justify-content: center;
     align-items: center;
     text-align: center;
-    text-transform: uppercase;
 }
 
 /* ------------------MEDIA QUERRIES----------------------- */
+@media screen and (max-width: 650px) {
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    header {
+        position: absolute;
+        top:0;
+        left: 0;
+        right: 0;
+    }
+    .landing{
+        padding: 0 0;
+    }
+   .left {
+       display: none;
+   }
+   #login-form{
+       width: 100%;
+   }
+ }
 @media screen and (max-width: 375px) {
-    #landing{
+    
+    #login-form{
         max-width: none;
     }
     footer{

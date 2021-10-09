@@ -1,7 +1,7 @@
 myStorage = window.localStorage
 // ------------------------------functions for buttons---------------------------------
 function logout(){
-    window.location = '../html/login.html'
+    location.href = '/index.html'
 }
 const user = JSON.parse(myStorage.getItem('user'))
 console.log(user)

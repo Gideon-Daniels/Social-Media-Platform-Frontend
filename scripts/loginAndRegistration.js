@@ -116,5 +116,11 @@ function registerLocation(address, suburb, postal_code, city, province){
     })
 }
 
+let signup = document.querySelector(".signup");
+console.log(signup)
+function signUp() {
+    console.log("this works")
+    location.href = './html/signup.html'
+}
 
 
