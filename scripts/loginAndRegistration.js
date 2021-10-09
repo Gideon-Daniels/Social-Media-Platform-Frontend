@@ -106,7 +106,7 @@ function registerLocation(address, suburb, postal_code, city, province){
         if (res.status_code == 201){
             document.querySelector("#error-location-details").innerHTML = "You have registered please login successfully"
             setTimeout(function(){
-                window.location = '../html/login.html'  
+                window.location = '/index.html'  
                 console.log("Checking if timeout function is running")
             }, 3000);  
         }
